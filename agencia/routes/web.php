@@ -14,3 +14,38 @@
 Route::get('/', function () {
     return view('welcome');
 });
+##Route::get( petición, acción );
+Route::get('/saludo', function()
+{
+    return 'hola mundo!';
+});
+Route::get('/uno', function ()
+{
+    return view('primera');
+});
+Route::get('/dos', function ()
+{
+    $nombre = 'marcos';
+    return view('segunda',
+                [
+                    'nombre'=>$nombre,
+                    'limite'=>15,
+                    'alemanes'=>[
+                                    'Audi', 'BMW',
+                                    'Porsche',
+                                    'Mercedes Benz'
+                                ]
+                ]
+            );
+});
+Route::get('/form', function ()
+{
+    return view('formulario');
+});
+Route::post('/procesa', function ()
+{
+    $nombre = $_POST['nombre'];
+    return view('procesa',
+                [ 'nombre'=>$nombre ]
+            );
+});
