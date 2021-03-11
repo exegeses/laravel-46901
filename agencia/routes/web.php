@@ -49,3 +49,9 @@ Route::post('/procesa', function ()
                 [ 'nombre'=>$nombre ]
             );
 });
+################################
+### Plantilla Blade
+Route::get('/inicio', function ()
+{
+    return view('inicio');
+});
