@@ -72,6 +72,27 @@ Route::get('/adminRegiones', function ()
                     [ 'regiones'=>$regiones ]
             );
 });
+Route::get('/agregarRegion', function ()
+{
+    return view('agregarRegion');
+});
+Route::post('/agregarRegion', function ()
+{
+    //capturamos datos enviados por el form
+    $regNombre = $_POST['regNombre'];
+    //insertamos datos
+    /*
+    DB::insert('INSERT INTO regiones
+                        ( regNombre )
+                    VALUES
+                        ( :regNombre )',
+                [ $regNombre ] );
+    */
+    DB::table('regiones')->insert([ 'regNombre'=>$regNombre ]);
+    //redireccionamos con mensaje ok
+    return redirect('/adminRegiones')
+                ->with( ['mensaje'=>'Region: '.$regNombre.' agregada correctamente'] );
+});
 ##################################
 ###### CRUD de Destinos
 Route::get('/adminDestinos', function ()

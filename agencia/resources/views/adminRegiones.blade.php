@@ -4,7 +4,7 @@
 
         <h1>Panel de administración de regiones</h1>
 
-        @if (session('mensaje'))
+        @if ( session('mensaje') )
             <div class="alert alert-success">
                 {{ session('mensaje') }}
             </div>
