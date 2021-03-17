@@ -6,12 +6,13 @@
         <div class="bg-light border-secondary col-6 mx-auto
                     shadow rounded p-4 text-danger">
             Se eliminará la región:
-            <span class="lead">{{ 'regNombre' }}</span>
+            <span class="lead">{{ $region->regNombre }}</span>
             <form action="/eliminarRegion" method="post">
+                @csrf
                 <input type="hidden" name="regNombre"
-                       value="{{ 'regNombre' }}">
+                       value="{{ $region->regNombre }}">
                 <input type="hidden" name="regID"
-                       value="{{ 'regID' }}">
+                       value="{{ $region->regID }}">
                 <button class="btn btn-danger btn-block my-3">
                     Confirmar baja
                 </button>
@@ -21,7 +22,11 @@
             </form>
         </div>
         <script>
-
+            Swal.fire(
+                '¡Advertencia!',
+                'Si pulsa el botón "Confirmar baja", se eliminará la región.',
+                'error'
+            );
         </script>
 
     @endsection
