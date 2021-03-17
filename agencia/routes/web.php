@@ -123,7 +123,7 @@ Route::post('/modificarRegion', function ()
             ->update( [ 'regNombre'=>$regNombre ] );
     //redireccionamos con mensaje de ok
     return redirect('/adminRegiones')
-        ->with( ['mensaje'=>'Region: '.$regNombre.' modificada correctamente'] );
+            ->with( ['mensaje'=>'Region: '.$regNombre.' modificada correctamente'] );
 
 });
 
