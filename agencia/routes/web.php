@@ -191,3 +191,26 @@ Route::get('/agregarDestino', function ()
                 [ 'regiones'=>$regiones ]
             );
 });
+Route::post('/agregarDestino', function()
+{
+    //capturamos datos enviados por el form
+    $destNombre = $_POST['destNombre'];
+    $regID = $_POST['regID'];
+    $destPrecio = $_POST['destPrecio'];
+    $destAsientos = $_POST['destAsientos'];
+    $destDisponibles = $_POST['destDisponibles'];
+    //insertar datos
+    DB::table('destinos')
+            ->insert(
+                [
+                'destNombre'=>$destNombre,
+                'regID'=>$regID,
+                'destPrecio'=>$destPrecio,
+                'destAsientos'=>$destAsientos,
+                'destDisponibles'=>$destDisponibles
+                ]
+            );
+    //redireccion + mensaje de ok
+    return redirect('/adminDestinos')
+                ->with([ 'mensaje'=>'Destino: '.$destNombre.' agregado correctamente' ]);
+});
