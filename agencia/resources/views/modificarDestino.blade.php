@@ -35,6 +35,8 @@
                    value="{{ $destino->destDisponibles }}"
                    class="form-control" required>
             <br>
+            <input type="hidden" name="destID"
+                   value="{{ $destino->destID }}">
             <button class="btn btn-dark">Modificar</button>
             <a href="/adminDestinos" class="btn btn-outline-secondary ml-3">
                  Volver a panel
