@@ -256,3 +256,27 @@ Route::post('/modificarDestino', function()
     return redirect('/adminDestinos')
                 ->with([ 'mensaje'=>'Destino: '.$destNombre.' modificado correctamente' ]);
 });
+Route::get('/eliminarDestino/{id}', function($id)
+{
+    //obtenemos datos de un destino por su id
+    $destino = DB::table('destinos as d')
+        ->join('regiones as r', 'd.regID', '=', 'r.regID')
+        ->where( 'destID', $id )
+        ->first();
+    //retornamos vista de confirmación
+    return view('eliminarDestino',
+                [ 'destino'=>$destino ]
+            );
+});
+Route::post('/eliminarDestino', function ()
+{
+    $destID = $_POST['destID'];
+    $destNombre = $_POST['destNombre'];
+
+    DB::table('destinos')
+        ->where('destID',$destID)
+        ->delete();
+
+    return redirect('/adminDestinos')
+        ->with(['mensaje'=> 'Destino: ' .$destNombre. ' se ha eliminado correctamente']);
+});
