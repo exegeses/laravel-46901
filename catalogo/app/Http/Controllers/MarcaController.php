@@ -16,7 +16,7 @@ class MarcaController extends Controller
     {
         //obtenemos listado de marcas
         //$marcas = Marca::all();
-        $marcas = Marca::paginate(5);
+        $marcas = Marca::paginate(7);
         //retornamos vista pasando datos
         return view('adminMarcas',
                     [ 'marcas'=>$marcas ]
@@ -30,7 +30,7 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
+        return view('agregarMarca');
     }
 
     /**
@@ -41,7 +41,16 @@ class MarcaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $mkNombre = $request->mkNombre;
+        //validación
+        $request->validate(
+                    [
+                        'mkNombre'=>'required|min:2|max:30'
+                    ]
+                );
+        return 'si vemos esto, pasó la validación';
+        //instanciación, asignación, guardado
+        //redirección con mensaje ok
     }
 
     /**
