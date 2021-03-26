@@ -28,12 +28,12 @@
                     <td>{{ $marca->idMarca }}</td>
                     <td>{{ $marca->mkNombre }}</td>
                     <td>
-                        <a href="/modificarMarca" class="btn btn-outline-secondary">
+                        <a href="/modificarMarca/{{ $marca->idMarca }}" class="btn btn-outline-secondary">
                             Modificar
                         </a>
                     </td>
                     <td>
-                        <a href="/eliminarMarca" class="btn btn-outline-secondary">
+                        <a href="/eliminarMarca/{{ $marca->idMarca }}" class="btn btn-outline-secondary">
                             Eliminar
                         </a>
                     </td>
