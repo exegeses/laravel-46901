@@ -98,15 +98,26 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
+        $prdNombre = $request->prdNombre;
         //validación
         $this->validar($request);
         //subir imagen
         $prdImagen = $this->subirImagen($request);
-        dd($prdImagen);
         //instanciar
+        $Producto = new Producto;
         //asignar
+        $Producto->prdNombre = $prdNombre;
+        $Producto->prdPrecio = $request->prdPrecio;
+        $Producto->idMarca = $request->idMarca;
+        $Producto->idCategoria = $request->idCategoria;
+        $Producto->prdPresentacion = $request->prdPresentacion;
+        $Producto->prdStock = $request->prdStock;
+        $Producto->prdImagen = $prdImagen;
         //guardar
+        $Producto->save();
         //redirección + mensaje ok
+        return redirect('/adminProductos')
+            ->with('mensaje', 'Producto: '. $prdNombre. ' agregado correctamente');
     }
 
     /**
