@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/exegeses/laravel-46901/master/extras/laravel-logo.png">
+<img src="extras/imagenes/laravel-logo.png">
 
 # Curso de Laravel código 46901
 
