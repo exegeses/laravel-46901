@@ -13,7 +13,7 @@
       Raw SQL
       Fluent Query Builder
 
-<img src="extras/imagenes/capas-rSQL%2BfQB.png">
+<img src="imagenes/capas-rSQL%2BfQB.png">
 
 
 ## Raw SQL
