@@ -137,9 +137,18 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $producto)
+    public function edit($id)
     {
-        //
+        $marcas = Marca::all();
+        $categorias = Categoria::all();
+        $Producto = Producto::find($id);
+        return view('modificarProducto',
+                    [
+                        'marcas'=>$marcas,
+                        'categorias'=>$categorias,
+                        'Producto'=>$Producto
+                    ]
+            );
     }
 
     /**
