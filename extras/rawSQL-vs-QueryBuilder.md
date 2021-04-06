@@ -13,7 +13,7 @@
       Raw SQL
       Fluent Query Builder
 
-<img src="https://raw.githubusercontent.com/exegeses/laravel-46901/master/extras/capas-rSQL%2BfQB.png">
+<img src="extras/imagenes/capas-rSQL%2BfQB.png">
 
 
 ## Raw SQL
