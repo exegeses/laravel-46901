@@ -24,6 +24,14 @@ class ProductoController extends Controller
         );
     }
 
+    public function portada()
+    {
+        $productos = Producto::with('relMarca', 'relCategoria')
+                    ->paginate(8);
+            return view('portada',
+                        [ 'productos'=>$productos ]
+                    );
+    }
     /**
      * Show the form for creating a new resource.
      *
